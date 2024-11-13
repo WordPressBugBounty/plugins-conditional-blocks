@@ -19,7 +19,6 @@ function cb_check_block_action( $has_match, $condition ) {
 	return false;
 }
 
-
 /**
  * Determines the post id of the current post. Supports nested loops.
  * 
@@ -79,3 +78,5 @@ function cb_maybe_flatten_meta( $meta_value, $nested_key = false ) {
 	// Filter out empty strings and return the imploded string.
 	return implode( ' ', array_filter( $flattened_values, 'strlen' ) );
 }
+
+

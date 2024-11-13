@@ -5,7 +5,7 @@
  * Author URI: https://conditionalblocks.com/
  * Description: Conditionally change the visibility of WordPress Blocks for any reason.
  * Author: Conditional Blocks
- * Version: 3.1.3
+ * Version: 3.1.6
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: conditional-blocks
@@ -34,7 +34,7 @@ if ( ! defined( 'CONDITIONAL_BLOCKS_PATH' ) ) {
  * Note version could be a string such as x.x.x-beta2.
  */
 if ( ! defined( 'CONDITIONAL_BLOCKS_VERSION' ) ) {
-	define( 'CONDITIONAL_BLOCKS_VERSION', '3.1.3' );
+	define( 'CONDITIONAL_BLOCKS_VERSION', '3.1.6' );
 }
 
 /**
@@ -64,7 +64,7 @@ class CONBLOCK_Init {
 
 		$this->constants = array(
 			'name' => 'Conditional Blocks',
-			'version' => '3.1.3',
+			'version' => '3.1.6',
 			'slug' => plugin_basename( __FILE__, ' . php' ),
 			'base' => plugin_basename( __FILE__ ),
 			'name_sanitized' => basename( __FILE__, '. php' ),
@@ -100,6 +100,7 @@ class CONBLOCK_Init {
 
 		
 		require_once plugin_dir_path( __FILE__ ) . 'functions/functions.php';
+		require_once plugin_dir_path( __FILE__ ) . 'data/countries.php';
 		require_once plugin_dir_path( __FILE__ ) . 'classes/class-register.php';
 		require_once plugin_dir_path( __FILE__ ) . 'classes/class-rest.php';
 		require_once plugin_dir_path( __FILE__ ) . 'classes/class-render.php';

@@ -78,6 +78,8 @@ class Conditional_Blocks_Enqueue {
 			$localized_data = array(
 				'plugin_url' => plugins_url( '', __DIR__ ),
 				'screensizes' => $this->responsive_screensizes(),
+				'ipinfo_api_key' => get_option( 'conditional_blocks_ipinfo_api_key', false ),
+				'geolocation_countries' => conditional_blocks_get_countries(),
 				'registered_categories' => apply_filters( 'conditional_blocks_register_condition_categories', array() ),
 				'registered_conditions_types' => apply_filters( 'conditional_blocks_register_condition_types', array() ),
 				'excluded_block_types' => apply_filters( 'conditional_blocks_excluded_block_types', array() ), // Exclude specific blocks.

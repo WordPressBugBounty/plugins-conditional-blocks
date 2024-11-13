@@ -28,6 +28,12 @@ class Conditional_Blocks_Render_Block {
 	private $logged_results = array();
 
 	/**
+	 * Set the detected geolocation country.
+	 * @var 
+	 */
+	private $detected_geolocation_country = false;
+
+	/**
 	 * Fire off the render block functions.
 	 */
 	public function init() {

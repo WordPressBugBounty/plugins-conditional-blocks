@@ -1,10 +1,10 @@
-=== Conditional Blocks - Advanced Content Visibility Control for Full Site Editing ===
+=== Conditional Blocks - Advanced Content Visibility Control for WordPress ===
 Contributors: morganhvidt
 Donate link: https://www.paypal.me/morganhvidt/
 Tags: visibility, content, control, restrict, hide 
 Requires at least: 5.5
-Tested up to: 6.6
-Stable tag: 3.1.3
+Tested up to: 6.7
+Stable tag: 3.1.6
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -258,7 +258,7 @@ We're always eager to hear your ideas! [Feature Request Board](https://condition
 
 * Change: Inside Query loops, post & meta related conditions will now target each post within the loop.
 * Change: The text on block actions to be more clear.
-* Fixed: PHP notice when Responsive Screensize condition has no screensizes selected.
+* Fixed: PHP notice when Responsive Screensizes condition has no screensizes selected.
 * WordPress 6.6 Ready
 
 = 3.1.1 = 
@@ -306,7 +306,6 @@ UI & UX Improvements
 Custom Conditions API:
 
 * **Developer Enhancements:** More information, custom icons, and upcoming integration examples.
-
 
 = 3.0.7 =
 - Tested & Ready: WordPress 6.4

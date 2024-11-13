@@ -74,7 +74,7 @@ class Conditional_Blocks_REST_V1 {
 	 * Convert the legacy conditions to fit the new structure.
 	 *
 	 * @param [type] $request_data
-	 * @return REST response.
+	 * @return WP_REST_Response response.
 	 */
 	public function callback_convert_legacy_conditions( $request_data ) {
 		$parameters = $request_data->get_params();
@@ -92,8 +92,8 @@ class Conditional_Blocks_REST_V1 {
 	/**
 	 * Update the database with changes to Conditional Blocks settings.
 	 *
-	 * @param REST $request_data data from REST API.
-	 * @return REST return the response.
+	 * @param WP_REST_Response $request_data data from REST API.
+	 * @return WP_REST_Response return the response.
 	 */
 	public function callback_update( $request_data ) {
 		$parameters = $request_data->get_params();
@@ -112,6 +112,10 @@ class Conditional_Blocks_REST_V1 {
 
 		if ( isset( $parameters['only_installed_integrations'] ) ) {
 			update_option( 'conditional_blocks_only_installed_integrations', $parameters['only_installed_integrations'] ? true : false, false );
+		}
+
+		if ( isset( $parameters['ipinfo_api_key'] ) ) {
+			update_option( 'conditional_blocks_ipinfo_api_key', $parameters['ipinfo_api_key'], false );
 		}
 
 		
