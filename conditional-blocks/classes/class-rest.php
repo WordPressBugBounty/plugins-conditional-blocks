@@ -68,7 +68,8 @@ class Conditional_Blocks_REST_V1 {
 				},
 			)
 		);
-	}
+
+			}
 
 	/**
 	 * Convert the legacy conditions to fit the new structure.
@@ -141,6 +142,7 @@ class Conditional_Blocks_REST_V1 {
 
 		return $updated_options;
 	}
-}
+
+	}
 
 new Conditional_Blocks_REST_V1();

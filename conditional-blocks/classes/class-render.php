@@ -34,6 +34,12 @@ class Conditional_Blocks_Render_Block {
 	private $detected_geolocation_country = false;
 
 	/**
+	 * Set the detected geolocation continent.
+	 * @var 
+	 */
+	private $detected_geolocation_continent = false;
+
+	/**
 	 * Fire off the render block functions.
 	 */
 	public function init() {
@@ -259,50 +265,67 @@ class Conditional_Blocks_Render_Block {
 	 * @return string $block_content
 	 */
 	public function apply_responsive_screensizes( $block_content, $show_on ) {
+		if ( empty( $block_content ) ) {
+			return $block_content;
+		}
 
+		// Build responsive classes
 		$html_classes = '';
-
 		if ( ! in_array( 'showMobileScreen', $show_on, true ) ) {
 			$html_classes .= 'conblock-hide-mobile ';
 		}
-
 		if ( ! in_array( 'showTabletScreen', $show_on, true ) ) {
 			$html_classes .= 'conblock-hide-tablet ';
 		}
-
 		if ( ! in_array( 'showDesktopScreen', $show_on, true ) ) {
 			$html_classes .= 'conblock-hide-desktop ';
 		}
 
-		if ( ! empty( $html_classes ) ) {
-
-			// Replace the first occurrence of class=" without classes.
-			// We need the classes to be added directly to the blocks. Wrapping classes can sometimes block full width content.
-			$needle = 'class="';
-
-			// Find the first occurrence.
-			$find_class_tag = strpos( $block_content, $needle );
-
-			if ( $find_class_tag !== false ) {
-				// Our classes.
-				$replacement = 'class="' . $html_classes . ' ';
-				// Replace it.
-				$new_block = substr_replace( $block_content, $replacement, $find_class_tag, strlen( $needle ) );
-			} else {
-				// Fallback to wrapping classes when block has no existing classes.
-				$new_block = '<div class="' . $html_classes . '">' . $block_content . '</div>';
-			}
-
-			// Make sure to add frontend CSS to handle the responsive blocks.
-			do_action( 'conditional_blocks_enqueue_frontend_responsive_css' );
-
-			return $new_block;
-		} else {
+		if ( empty( $html_classes ) ) {
 			return $block_content;
 		}
 
-	}
+		$html_classes = trim( $html_classes );
+		$block_content = trim( $block_content );
 
+		// Count root level elements
+		$root_elements = preg_match_all( '/<[a-zA-Z0-9]+[\s>]/', $block_content, $matches );
+
+		// If we have more than one root element or no elements, wrap everything
+		if ( $root_elements !== 1 ) {
+			$block_content = '<div class="' . $html_classes . '">' . $block_content . '</div>';
+		} else {
+			// If we get here, we have exactly one root element
+			$block_content = preg_replace_callback(
+				'/^(<[a-zA-Z0-9]+)((?:\s+[^>]*)?)(>)/',
+				function ($matches) use ($html_classes) {
+					$tag = $matches[1];
+					$attrs = $matches[2];
+
+					// If already has class attribute
+					if ( preg_match( '/\sclass\s*=\s*(["\'])(.*?)\1/', $attrs, $class_matches ) ) {
+						$attrs = preg_replace(
+							'/(\sclass\s*=\s*["\'])(.*?)(["\'])/',
+							'$1' . $html_classes . ' $2$3',
+							$attrs
+						);
+					} else {
+						// Add class attribute
+						$attrs = rtrim( $attrs ) . ' class="' . $html_classes . '"';
+					}
+
+					return $tag . $attrs . $matches[3];
+				},
+				$block_content,
+				1
+			);
+		}
+
+		// Make sure to add frontend CSS to handle the responsive blocks.
+		do_action( 'conditional_blocks_enqueue_frontend_responsive_css' );
+
+		return $block_content;
+	}
 	/**
 	 * Lockdown, this block has been isolated from everyone.
 	 *

@@ -3,9 +3,9 @@
 /**
  * Plugin Name: Conditional Blocks
  * Author URI: https://conditionalblocks.com/
- * Description: Conditionally change the visibility of WordPress Blocks for any reason.
+ * Description:  Create personalized content by using conditions on all WordPress blocks.
  * Author: Conditional Blocks
- * Version: 3.1.6
+ * Version: 3.2.1
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: conditional-blocks
@@ -34,7 +34,7 @@ if ( ! defined( 'CONDITIONAL_BLOCKS_PATH' ) ) {
  * Note version could be a string such as x.x.x-beta2.
  */
 if ( ! defined( 'CONDITIONAL_BLOCKS_VERSION' ) ) {
-	define( 'CONDITIONAL_BLOCKS_VERSION', '3.1.6' );
+	define( 'CONDITIONAL_BLOCKS_VERSION', '3.2.1' );
 }
 
 /**
@@ -64,7 +64,7 @@ class CONBLOCK_Init {
 
 		$this->constants = array(
 			'name' => 'Conditional Blocks',
-			'version' => '3.1.6',
+			'version' => '3.2.1',
 			'slug' => plugin_basename( __FILE__, ' . php' ),
 			'base' => plugin_basename( __FILE__ ),
 			'name_sanitized' => basename( __FILE__, '. php' ),
@@ -100,7 +100,7 @@ class CONBLOCK_Init {
 
 		
 		require_once plugin_dir_path( __FILE__ ) . 'functions/functions.php';
-		require_once plugin_dir_path( __FILE__ ) . 'data/countries.php';
+				require_once plugin_dir_path( __FILE__ ) . 'functions/languages.php';
 		require_once plugin_dir_path( __FILE__ ) . 'classes/class-register.php';
 		require_once plugin_dir_path( __FILE__ ) . 'classes/class-rest.php';
 		require_once plugin_dir_path( __FILE__ ) . 'classes/class-render.php';
@@ -109,11 +109,12 @@ class CONBLOCK_Init {
 		require_once plugin_dir_path( __FILE__ ) . 'integrations/advanced-custom-fields.php';
 		require_once plugin_dir_path( __FILE__ ) . 'integrations/paid-memberships-pro.php';
 		require_once plugin_dir_path( __FILE__ ) . 'integrations/meta-box.php';
+		require_once plugin_dir_path( __FILE__ ) . 'integrations/gtranslate.php';
 	}
 
 	public function activation() {
 				$text = __(
-			'Thank you for installing Conditional Blocks! Select any block in the Block Editor to add conditions.   ',
+			'Thank you for installing Conditional Blocks! You can now start adding conditions to your blocks on posts & pages.',
 			'conditional-blocks'
 		) . ' <a class="button button-secondary" target="_blank" href="' . esc_url( 'https://conditionalblocks.com/docs/?utm_source=conditional-blocks-free&utm_medium=referral&utm_campaign=activation-notice' ) . '">' . __( 'Learn more', 'conditional-blocks' ) . '</a>';
 		$this->notices->add_notice(

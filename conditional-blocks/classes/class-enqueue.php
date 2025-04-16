@@ -32,7 +32,7 @@ class Conditional_Blocks_Enqueue {
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_content_styles' ) );
 		// Apply the CSS only when it's needed for a page, not on every page using enqueue_block_assets.
 		add_action( 'conditional_blocks_enqueue_frontend_responsive_css', array( $this, 'frontend_responsive_inline_css' ) );
-	}
+			}
 
 	/**
 	 * Enqueue block JavaScript and CSS for the editor.
@@ -78,11 +78,11 @@ class Conditional_Blocks_Enqueue {
 			$localized_data = array(
 				'plugin_url' => plugins_url( '', __DIR__ ),
 				'screensizes' => $this->responsive_screensizes(),
-				'ipinfo_api_key' => get_option( 'conditional_blocks_ipinfo_api_key', false ),
-				'geolocation_countries' => conditional_blocks_get_countries(),
 				'registered_categories' => apply_filters( 'conditional_blocks_register_condition_categories', array() ),
 				'registered_conditions_types' => apply_filters( 'conditional_blocks_register_condition_types', array() ),
 				'excluded_block_types' => apply_filters( 'conditional_blocks_excluded_block_types', array() ), // Exclude specific blocks.
+				'excluded_categories' => apply_filters( 'conditional_blocks_excluded_categories', array() ), // Exclude specific categories.
+				'excluded_condition_types' => apply_filters( 'conditional_blocks_excluded_condition_types', array() ), // Exclude specific condition types.
 				'visible_in_editor' => apply_filters( 'conditional_blocks_visible_in_editor', true ), // Change if conditional blocks is visible in the editor.
 				'developer_mode' => get_option( 'conditional_blocks_developer_mode', false ),
 				'open_from_toolbar' => get_option( 'conditional_blocks_open_from_toolbar', false ),
