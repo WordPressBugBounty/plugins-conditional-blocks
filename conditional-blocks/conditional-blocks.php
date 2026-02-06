@@ -5,7 +5,7 @@
  * Author URI: https://conditionalblocks.com/
  * Description:  Create personalized content by using conditions on all WordPress blocks.
  * Author: Conditional Blocks
- * Version: 3.2.1
+ * Version: 3.3.1
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: conditional-blocks
@@ -34,7 +34,7 @@ if ( ! defined( 'CONDITIONAL_BLOCKS_PATH' ) ) {
  * Note version could be a string such as x.x.x-beta2.
  */
 if ( ! defined( 'CONDITIONAL_BLOCKS_VERSION' ) ) {
-	define( 'CONDITIONAL_BLOCKS_VERSION', '3.2.1' );
+	define( 'CONDITIONAL_BLOCKS_VERSION', '3.3.1' );
 }
 
 /**
@@ -64,7 +64,7 @@ class CONBLOCK_Init {
 
 		$this->constants = array(
 			'name' => 'Conditional Blocks',
-			'version' => '3.2.1',
+			'version' => '3.3.1',
 			'slug' => plugin_basename( __FILE__, ' . php' ),
 			'base' => plugin_basename( __FILE__ ),
 			'name_sanitized' => basename( __FILE__, '. php' ),
@@ -110,7 +110,10 @@ class CONBLOCK_Init {
 		require_once plugin_dir_path( __FILE__ ) . 'integrations/paid-memberships-pro.php';
 		require_once plugin_dir_path( __FILE__ ) . 'integrations/meta-box.php';
 		require_once plugin_dir_path( __FILE__ ) . 'integrations/gtranslate.php';
+		require_once plugin_dir_path( __FILE__ ) . 'integrations/wp-fusion.php';
+		require_once plugin_dir_path( __FILE__ ) . 'integrations/fluent-crm.php';
 	}
+
 
 	public function activation() {
 				$text = __(

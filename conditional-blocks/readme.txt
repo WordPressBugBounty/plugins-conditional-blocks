@@ -3,8 +3,8 @@ Contributors: morganhvidt
 Donate link: https://www.paypal.me/morganhvidt/
 Tags: visibility, display logic, control, restrict, hide 
 Requires at least: 5.5
-Tested up to: 6.8
-Stable tag: 3.2.1
+Tested up to: 6.9
+Stable tag: 3.3.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -85,6 +85,9 @@ _Integrations are automatically available when the supported plugin is active._
 *   **Paid Memberships Pro (PMPro):** Easily restrict content based on membership levels, status, or specific user field data. ([Learn More](https://conditionalblocks.com/docs/paid-memberships-pro/?utm_source=wporg&utm_medium=referral&utm_campaign=readme))
 *   **MetaBox:** Control block visibility based on the values stored in your MetaBox custom fields. ([Learn More](https://conditionalblocks.com/docs/metabox/field-value/?utm_source=wporg&utm_medium=referral&utm_campaign=readme))
 *   **ProfilePress:** Restrict content visibility based on users' active membership plans in ProfilePress. ([Learn More](https://conditionalblocks.com/docs/profilepress/active-membership-plans/?utm_source=wporg&utm_medium=referral&utm_campaign=readme))
+*   **FluentCRM:** Control block visibility based on FluentCRM user tags and contact lists. Perfect for targeted email marketing follow-ups. ([Learn More](https://conditionalblocks.com/docs/fluentcrm/?utm_source=wporg&utm_medium=referral&utm_campaign=readme))
+*   **WP Fusion:** Show or hide content based on WP Fusion tags synced from your CRM, enabling deep CRM-driven personalization. ([Learn More](https://conditionalblocks.com/docs/wp-fusion/?utm_source=wporg&utm_medium=referral&utm_campaign=readme))
+*   **GTranslate:** Display content conditionally based on the visitor's selected language in GTranslate. ([Learn More](https://conditionalblocks.com/docs/gtranslate/?utm_source=wporg&utm_medium=referral&utm_campaign=readme))
 
 **🚀 Workflow Boosters (Pro)**
 
@@ -247,6 +250,14 @@ We're always eager to hear your ideas! [Feature Request Board](https://condition
 7. Frontend showing different blocks for different screen sizes using responsive blocks.
 
 == Changelog ==
+
+= 3.3.1 =
+
+* WordPress 6.9 Ready
+* Added new developer snippet for restricting the Preset Manager for different users. 
+* Improved the Preset Manager UI & helpful text.
+* Added new Conditional indicator in the blocks List View. 
+* ACF User Meta (Pro) - includes choosing to check for the metadata for the current user or post author. 
 
 = 3.2.1 = 
 
