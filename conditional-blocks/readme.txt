@@ -3,8 +3,8 @@ Contributors: morganhvidt
 Donate link: https://www.paypal.me/morganhvidt/
 Tags: visibility, display logic, control, restrict, hide 
 Requires at least: 5.5
-Tested up to: 6.9
-Stable tag: 3.3.1
+Tested up to: 7.0
+Stable tag: 3.3.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -250,6 +250,11 @@ We're always eager to hear your ideas! [Feature Request Board](https://condition
 7. Frontend showing different blocks for different screen sizes using responsive blocks.
 
 == Changelog ==
+
+= 3.3.2 =
+
+* WordPress 7.0 Ready
+* Code structure updated in line with the Pro version
 
 = 3.3.1 =
 
